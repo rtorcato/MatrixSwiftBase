@@ -10,7 +10,7 @@ import SwiftUI
 
 final class AppHelper {
     
-    static let instance = AppHelper() // Singleton
+    public static let instance = AppHelper() // Singleton
     
     init() {
        
@@ -41,26 +41,26 @@ final class AppHelper {
     }
    
     
-    static var appVersion: String {
+    public static var appVersion: String {
         (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "_error"
     }
-    static var buildVersion: String {
+    public static var buildVersion: String {
         (Bundle.main.infoDictionary?["CFBundleVersion"] as? String) ?? "_error"
     }
     
     #if os(iOS)
-    static func isUsingSplitView()->Bool{
+    public static func isUsingSplitView()->Bool{
         guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{return false}
         return screen.windows.first?.frame.size != screen.screen.bounds.size
     }
     #endif
     
     #if os(iOS)
-      static let deviceType: UIUserInterfaceIdiom = UIDevice.current.userInterfaceIdiom
+      public static let deviceType: UIUserInterfaceIdiom = UIDevice.current.userInterfaceIdiom
     #endif
     
     // MacOS Data....
-    static var screen: CGRect{
+    public static var screen: CGRect{
         #if os(iOS)
         return UIScreen.main.bounds
         #else
@@ -70,18 +70,18 @@ final class AppHelper {
     
     // hides the tab bar default appearance
     #if os(iOS)
-    static func hideTabBarAppearance() {
+    public static func hideTabBarAppearance() {
         UITabBar.appearance().isHidden = true
     }
     #endif
     
     #if canImport(UIKit)
-    static func hideKeyboard() {
+    public static func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     #endif
     
-    func performHeavyTask() async {
+    public func performHeavyTask() async {
         // Wait for 5 seconds
         try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
     }

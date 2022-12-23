@@ -1,3 +1,3 @@
-# SwiftBaseKit
+# MatrixSwiftBase
 
-A description of this package.!
+This package is useful at quickly building swiftUI apps.
