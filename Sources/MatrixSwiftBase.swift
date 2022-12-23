@@ -1,5 +1,5 @@
 
-//import SwiftyUtils
+import SwiftyUtils
 
 public struct MatrixSwiftBase {
     public private(set) var text = "Hello, World!"

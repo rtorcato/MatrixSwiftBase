@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-final class StringHelper {
+public final class StringHelper {
     
-    static let instance = StringHelper() // Singleton
+//    public static let shared = StringHelper() // Singleton
+    
+    public init(){ }
     
     public static func toPhoneNumber(value: String) -> String {
         return value.replacingOccurrences(of: "(\\d{3})(\\d{3})(\\d+)", with: "($1) $2-$3", options: .regularExpression, range: nil)

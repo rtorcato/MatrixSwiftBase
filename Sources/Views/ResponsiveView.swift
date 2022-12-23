@@ -8,10 +8,15 @@
 import SwiftUI
 
 // MARK: Custom View which will return the properties of the view
-struct ResponsiveView<Content: View>: View {
+public struct ResponsiveView<Content: View>: View {
+    var content: ((ResponsiveViewProperties)->Content)
     // Returning properties
-    var content: (ResponsiveViewProperties)->Content
-    var body: some View {
+    
+//    public init(){
+////        self.content = ResponsiveViewProperties(isLandscape: isLandscape, isiPad: isiPad, isSplit: isSplit, size: size)
+//    }
+    
+    public var body: some View {
         GeometryReader{proxy in
             let size = proxy.size
             let isLandscape = (size.width > size.height)
@@ -39,10 +44,10 @@ struct ResponsiveView<Content: View>: View {
 }
 //extension ResponsiveView {
    public struct ResponsiveViewProperties{
-        var isLandscape: Bool
-        var isiPad: Bool
-        var isSplit: Bool
-        var size: CGSize
+        public var isLandscape: Bool
+        public var isiPad: Bool
+        public var isSplit: Bool
+        public var size: CGSize
     }
 //}
 

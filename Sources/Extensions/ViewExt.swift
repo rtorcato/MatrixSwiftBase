@@ -9,7 +9,7 @@ import SwiftUI
 
 extension View {
 #if os(iOS)
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+    public func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners))
     }
 #endif
@@ -17,12 +17,12 @@ extension View {
 
 extension View {
     
-    func embedInNavigationView() -> some View {
+    public func embedInNavigationView() -> some View {
         return NavigationView { self }
     }
     
     @available(iOS 16.0, *)
-    func embedInNavigationStack() -> some View {
+    public func embedInNavigationStack() -> some View {
         return NavigationStack { self }
     }
 }
@@ -34,7 +34,7 @@ extension View {
     ///   - condition: The condition to evaluate.
     ///   - transform: The transform to apply to the source `View`.
     /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
-    @ViewBuilder func applyIf<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+    @ViewBuilder public func applyIf<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
         if condition {
             transform(self)
         } else {
@@ -79,7 +79,7 @@ private struct SizePreferenceKey: PreferenceKey {
     static func reduce(value: inout CGSize, nextValue: () -> CGSize) {}
 }
 extension View {
-    func readSize(onChange: @escaping (CGSize) -> Void) -> some View {
+    public func readSize(onChange: @escaping (CGSize) -> Void) -> some View {
         background(
             GeometryReader { geometryProxy in
                 Color.clear

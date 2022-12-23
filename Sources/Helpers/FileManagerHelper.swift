@@ -8,32 +8,32 @@
 import Foundation
 import SwiftUI
 
-final class FileManagerHelper {
+public final class FileManagerHelper {
     
-    static let shared = FileManagerHelper() // Singleton
+    public static let shared = FileManagerHelper() // Singleton
     
-    static func getTempDirectory() -> URL {
+    public static func getTempDirectory() -> URL {
         return FileManager.default.temporaryDirectory
     }
     
-    static func docExist(named docName: String) -> Bool {
+    public static func docExist(named docName: String) -> Bool {
         FileManager.default.fileExists(atPath: FileManagerHelper.getDocumentsDirectory().appendingPathComponent(docName).path)
     }
-    static func getApplicationSupportDirectory() -> URL {
+    public static func getApplicationSupportDirectory() -> URL {
         // find all possible application support directories for this user
         let paths = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
         // just send back the first one, which ought to be the only one
         return paths[0]
     }
     
-    static func getDocumentsDirectory() -> URL {
+    public static func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         // just send back the first one, which ought to be the only one
         return paths[0]
     }
     
-    static func listDocumentsDirectory() -> Void {
+    public static func listDocumentsDirectory() -> Void {
         let fm = FileManager.default
         let path = FileManagerHelper.getDocumentsDirectory()
         print(path.absoluteString)
@@ -48,7 +48,7 @@ final class FileManagerHelper {
         }
     }
     
-    static func getBundleDirectory() -> Void {
+    public static func getBundleDirectory() -> Void {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
 
@@ -63,7 +63,7 @@ final class FileManagerHelper {
         }
     }
     
-    func saveDocument(contents: String, docName: String, completion: (Result<Bool, FileManagerError>) -> Void) {
+    public func saveDocument(contents: String, docName: String, completion: (Result<Bool, FileManagerError>) -> Void) {
         let url = Self.getDocumentsDirectory().appendingPathComponent(docName)
         do {
             try contents.write(to: url, atomically: true, encoding: .utf8)
@@ -73,7 +73,7 @@ final class FileManagerHelper {
         }
     }
     
-    func readDocument(docName: String, completion: (Result<Data, FileManagerError>) -> Void) {
+    public func readDocument(docName: String, completion: (Result<Data, FileManagerError>) -> Void) {
         let url = Self.getDocumentsDirectory().appendingPathComponent(docName)
         do {
             let data = try Data(contentsOf: url)
@@ -84,13 +84,13 @@ final class FileManagerHelper {
     }
 }
 
-enum FileManagerError: Error, LocalizedError {
+public enum FileManagerError: Error, LocalizedError {
     case saveError
     case readError
     case decodingError
     case encodingError
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .saveError:
             return NSLocalizedString("Could not save File, please reinstall the app.", comment: "")
@@ -104,7 +104,11 @@ enum FileManagerError: Error, LocalizedError {
     }
 }
 
-struct FileManagerErrorType: Identifiable {
-    let id = UUID()
-    let error: FileManagerError
-}
+//public struct FileManagerErrorType: Identifiable {
+//    public let id = UUID()
+//    public let error: FileManagerError
+//    public init(){
+//        self.id = UUID()
+//
+//    }
+//}

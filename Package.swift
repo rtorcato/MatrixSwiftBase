@@ -24,6 +24,7 @@ let package = Package(
         .target(
             name: "MatrixSwiftBase",
             dependencies: ["SwiftyUtils"],
+            path: "Sources",
             resources: [
                 // .process("Swift-Base-Kit-Assets.xcassets")
                 // .process("example.png"),

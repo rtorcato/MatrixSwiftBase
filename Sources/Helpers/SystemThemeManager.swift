@@ -16,12 +16,12 @@ import Foundation
 
 
 
-class SystemThemeManager {
-    static let shared = SystemThemeManager()
+public class SystemThemeManager {
+    public static let shared = SystemThemeManager()
     
-    private init() {}
+    public init() {}
     
-    func handleTheme (darkMode: Bool, system: Bool){
+    public func handleTheme (darkMode: Bool, system: Bool){
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             // Handle System

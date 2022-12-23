@@ -8,10 +8,14 @@
 import SwiftUI
 
 // MARK: ScrollView Offset Reader
-struct OffsetModifier: ViewModifier {
+public struct OffsetModifier: ViewModifier {
     @Binding var offset: CGFloat
-
-    func body(content: Content) -> some View {
+    
+    public init(offset: Binding<CGFloat>){
+        self._offset = offset
+    }
+    
+    public func body(content: Content) -> some View {
         content
             .overlay {
                 GeometryReader{ proxy in

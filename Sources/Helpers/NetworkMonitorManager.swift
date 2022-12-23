@@ -8,19 +8,19 @@
 import Foundation
 import Network
 
-class NetworkMonitor: ObservableObject {
+public class NetworkMonitor: ObservableObject {
     private let workerQueue = DispatchQueue(label: "NetworkMonitorQueue")
     private let pathMonitor: NWPathMonitor
     var isConnected = false
     
     @Published var currentInterface: NWInterface.InterfaceType = .wifi
     
-    init() {
+    public init() {
         pathMonitor = NWPathMonitor()
         self.start()
     }
     
-    func start() {
+    public func start() {
         pathMonitor.pathUpdateHandler = { [weak self] path in
             //            print(path.status)
             //            if path.usesInterfaceType(.wifi) {
@@ -44,7 +44,7 @@ class NetworkMonitor: ObservableObject {
         pathMonitor.start (queue: workerQueue)
     }
     
-    func stop() {
+    public func stop() {
     }
 }
 

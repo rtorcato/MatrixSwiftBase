@@ -8,7 +8,7 @@
 import SwiftUI
 
 //HStack<Content> : View where Content : View {
-@MainActor public struct SlideOutPanel<Content, MainContent>: View where Content : View, MainContent : View {
+public struct SlideOutPanel<Content, MainContent>: View where Content : View, MainContent : View {
     enum SlideOutDirection {
         case right
         case left
@@ -32,7 +32,7 @@ import SwiftUI
     //    // to hide view
     //    @State var x = -UIScreen.main.bounds.width + 90
     
-    @MainActor public init(isOpen: Binding<Bool>, @ViewBuilder panelContent: @escaping () -> Content, @ViewBuilder mainContent: @escaping () -> MainContent)
+    public init(isOpen: Binding<Bool>, @ViewBuilder panelContent: @escaping () -> Content, @ViewBuilder mainContent: @escaping () -> MainContent)
     //    init(isOpen: Binding<Bool>,
     //         panelContent: @escaping () -> PanelContent,
     //         content: @escaping () -> Content)

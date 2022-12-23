@@ -9,16 +9,22 @@ import SwiftUI
 import WebKit
 
 
-struct WebView: UIViewRepresentable {
+public struct WebView: UIViewRepresentable {
 
     let request: URLRequest
     @Binding var isLoading: Bool
     @Binding var error: Error?
     
-    func makeCoordinator() -> Coordinator {
+    public init(request:URLRequest, isLoading:Binding<Bool>, error: Binding<Error?>){
+        self.request = request
+        self._isLoading = isLoading
+        self._error = error
+    }
+    
+    public func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
-    func makeUIView(context: Context) -> WKWebView {
+    public func makeUIView(context: Context) -> WKWebView {
        let view = WKWebView()
        // isLoading = true
         view.load(request)
@@ -26,29 +32,29 @@ struct WebView: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: WKWebView, context: Context) {
+    public func updateUIView(_ uiView: WKWebView, context: Context) {
         
     }
     
-    class Coordinator: NSObject, WKNavigationDelegate {
+    public class Coordinator: NSObject, WKNavigationDelegate {
         
-        var webView: WebView
+        public var webView: WebView
         
-        init(_ webView: WebView) {
+        public init(_ webView: WebView) {
             self.webView = webView
         }
         
-        func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
             self.webView.isLoading = true
             self.webView.error = nil
         }
         
-        func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
             self.webView.error = error
             self.webView.isLoading = false
         }
         
-        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             self.webView.isLoading = false
         }
     }

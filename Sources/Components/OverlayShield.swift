@@ -8,6 +8,9 @@
 import SwiftUI
 
 public struct OverlayShieldView: View {
+    public init(){
+        
+    }
     public var body: some View {
         Color.black
 //            .zIndex(1)

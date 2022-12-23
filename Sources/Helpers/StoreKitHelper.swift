@@ -8,17 +8,17 @@
 import SwiftUI
 import StoreKit
 
-final class StoreKitHelper {
+public final class StoreKitHelper {
     #if os(iOS)
     @Environment(\.requestReview) private var storeKitRequestReview
     #endif
     //    static let instance = StoreKitHelper() // Singleton
     
-    init(){
+    public init(){
         
     }
     #if os(iOS)
-    func requestStoreReview() {
+    public func requestStoreReview() {
         // SKStoreReviewController.requestReview()
         DispatchQueue.main.async {
             self.storeKitRequestReview()
@@ -27,7 +27,7 @@ final class StoreKitHelper {
     #endif
     
     #if os(macOS)
-    func requestMacStoreReview(itunesStoreURL:String) {
+    public func requestMacStoreReview(itunesStoreURL:String) {
         //"https://itunes.apple.com/app/id123456789?action=write-review"
         guard let writeReviewURL = URL(string: itunesStoreURL) else {
               print("Invalid itunes store URL")
