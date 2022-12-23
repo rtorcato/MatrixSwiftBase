@@ -38,7 +38,7 @@ struct ResponsiveView<Content: View>: View {
     }
 }
 //extension ResponsiveView {
-    struct ResponsiveViewProperties{
+   public struct ResponsiveViewProperties{
         var isLandscape: Bool
         var isiPad: Bool
         var isSplit: Bool

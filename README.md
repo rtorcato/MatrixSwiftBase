@@ -1,3 +1,3 @@
-# Swift-Base-Kit
+# SwiftBaseKit
 
 A description of this package.
