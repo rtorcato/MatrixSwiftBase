@@ -1,10 +1,11 @@
 //
 //  SoundHelper.swift
-//  AppleCore
+//  MatrixSwiftBase
 //
 //  Created by Richard Torcato on 2022-10-25.
 //
 
+import Foundation
 import AVFoundation
 
 public final class SoundHelper {
@@ -15,13 +16,14 @@ public final class SoundHelper {
     
     public init(){}
     
-    public static func playSound(sound: String, type: String) {
-        if let path = Bundle.main.path(forResource: sound, ofType: type) {
+    public static func playSound(sound: String, type: SoundFileTypes = .mp3) {
+        let fileType: String? = type.description
+        if let path = Bundle.main.path(forResource: sound, ofType: fileType) {
             do {
                 SoundHelper.shared.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
                 SoundHelper.shared.audioPlayer?.play()
             } catch {
-                print("ERROR: Cloud not find and play the sound file!")
+                print("ERROR: Could not find and play the sound file!")
             }
         }
     }
@@ -31,3 +33,14 @@ public final class SoundHelper {
     }
 }
 
+//    func playSound(sound: String, type: SoundFileTypes) {
+//        let fileType: String? = type.description
+//        if let path = Bundle.main.path(forResource: sound, ofType: fileType) {
+//            do {
+//                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+//                audioPlayer?.play()
+//            } catch {
+//                print("Could not play the sound file.")
+//            }
+//        }
+//    }
