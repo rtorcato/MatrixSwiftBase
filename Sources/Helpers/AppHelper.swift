@@ -85,4 +85,8 @@ final class AppHelper {
         // Wait for 5 seconds
         try? await Task.sleep(nanoseconds: 5 * 1_000_000_000)
     }
+    
+    public static func getDeviceToken(){
+        //
+    }
 }
