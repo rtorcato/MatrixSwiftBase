@@ -44,3 +44,52 @@ public final class SoundHelper {
 //            }
 //        }
 //    }
+
+//
+//  AudioPlayer.swift
+//  Restart
+//
+//
+
+// import Foundation
+// import AVFoundation
+//
+// var audioPlayer: AVAudioPlayer?
+//
+// enum SoundFileTypes: String, CaseIterable {
+//    case mp3
+//    case wav
+//
+//    var value: String? {
+//        return String(describing: self)
+//    }
+//    var description : String {
+//        return String(describing: self)
+//    }
+////    SoundFileTypes.allCases.forEach { soundFileType in
+////        print(soundFileType.rawValue)
+////    }
+//}
+//
+//enum ImageFileTypes: String, CaseIterable {
+//    case jpeg
+//    case png
+//    case gif
+//
+//    var description : String {
+//        return String(describing: self)
+//    }
+//}
+//
+//func playSound(sound: String, type: SoundFileTypes) {
+//    let fileType: String? = type.description
+//    if let path = Bundle.main.path(forResource: sound, ofType: fileType) {
+//        do {
+//            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+//            audioPlayer?.play()
+//        } catch {
+//            print("Could not play the sound file.")
+//        }
+//    }
+//}
+//
