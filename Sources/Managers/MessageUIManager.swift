@@ -22,11 +22,13 @@ public class MessageUIManager {
     public func getEMailComposer() -> MFMailComposeViewController {
         let mailComposeVC = MFMailComposeViewController()
         mailComposeVC.mailComposeDelegate = mailComposeDelegate
+        mailComposeVC.accessibilityElementDidLoseFocus()
         return mailComposeVC
     }
     public func getMessageComposer() -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = messageComposeDelegate
+        messageComposeVC.accessibilityElementDidLoseFocus()
         return messageComposeVC
     }
     

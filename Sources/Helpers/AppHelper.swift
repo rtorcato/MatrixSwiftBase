@@ -10,36 +10,36 @@ import SwiftUI
 
 public final class AppHelper {
     
-    public static let instance = AppHelper() // Singleton
-    
-    init() {
-       
-    }
+    //    public static let instance = AppHelper() // Singleton
+    //
+    //    init() {
+    //
+    //    }
     
     static var isMacOS: Bool {
-        #if os(iOS)
+#if os(iOS)
         return true
-        #else
+#else
         return false
-        #endif
+#endif
     }
     
     static var isDebug: Bool {
-        #if DEBUG
-            return true
-        #else
-            return false
-        #endif
+#if DEBUG
+        return true
+#else
+        return false
+#endif
     }
     
     static var hasDynamicIsland: Bool {
-       UIDevice.current.name == "iPhone 14 Pro" || UIDevice.current.name == "iPhone 14 Pro Max"
+        UIDevice.current.name == "iPhone 14 Pro" || UIDevice.current.name == "iPhone 14 Pro Max"
     }
     
     static var deviceName: String{
         return UIDevice.current.name
     }
-   
+    
     
     public static var appVersion: String {
         (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "_error"
@@ -48,38 +48,38 @@ public final class AppHelper {
         (Bundle.main.infoDictionary?["CFBundleVersion"] as? String) ?? "_error"
     }
     
-    #if os(iOS)
+#if os(iOS)
     public static func isUsingSplitView()->Bool{
         guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{return false}
         return screen.windows.first?.frame.size != screen.screen.bounds.size
     }
-    #endif
+#endif
     
-    #if os(iOS)
-      public static let deviceType: UIUserInterfaceIdiom = UIDevice.current.userInterfaceIdiom
-    #endif
+#if os(iOS)
+    public static let deviceType: UIUserInterfaceIdiom = UIDevice.current.userInterfaceIdiom
+#endif
     
     // MacOS Data....
     public static var screen: CGRect{
-        #if os(iOS)
+#if os(iOS)
         return UIScreen.main.bounds
-        #else
+#else
         return NSScreen.main!.visibleFrame
-        #endif
+#endif
     }
     
     // hides the tab bar default appearance
-    #if os(iOS)
+#if os(iOS)
     public static func hideTabBarAppearance() {
         UITabBar.appearance().isHidden = true
     }
-    #endif
+#endif
     
-    #if canImport(UIKit)
+#if canImport(UIKit)
     public static func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-    #endif
+#endif
     
     public func performHeavyTask() async {
         // Wait for 5 seconds
