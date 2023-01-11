@@ -11,12 +11,12 @@
 import SwiftUI
 import Combine
 
-struct NumbersOnlyViewModifier: ViewModifier {
+public struct NumbersOnlyViewModifier: ViewModifier {
     
     @Binding var text: String
     var includeDecimal: Bool
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .keyboardType(includeDecimal ? .decimalPad : .numberPad)
             .onReceive(Just(text)) { newValue in
@@ -39,7 +39,7 @@ struct NumbersOnlyViewModifier: ViewModifier {
 }
 
 extension View {
-    func numbersOnly(_ text: Binding<String>, includeDecimal: Bool = false) -> some View {
+    public func numbersOnly(_ text: Binding<String>, includeDecimal: Bool = false) -> some View {
         self.modifier(NumbersOnlyViewModifier(text: text, includeDecimal: includeDecimal))
     }
 }
