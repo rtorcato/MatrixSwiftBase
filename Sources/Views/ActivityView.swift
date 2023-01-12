@@ -4,7 +4,7 @@
 //
 //  Created by Richard Torcato on 2022-09-30.
 //
-
+#if os(macOS)
 import SwiftUI
 import UIKit
 
@@ -33,3 +33,4 @@ struct ActivityIndicator_Previews: PreviewProvider {
         ActivityIndicator(isAnimating: true)
     }
 }
+#endif

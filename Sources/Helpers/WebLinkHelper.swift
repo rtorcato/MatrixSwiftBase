@@ -11,6 +11,7 @@ final public class WebLinkHelper {
     // in views you can use openurl environment variable
     //    @Environment(\.openURL) var openURL
     
+    #if os(iOS)
     public static func openWebLink(_ urlString:String) {
         guard let url = URL(string: urlString) else {
             return
@@ -23,11 +24,14 @@ final public class WebLinkHelper {
             }
         }
     }
+    #endif
     
     // Open the iOS system settings for the app
+    #if os(iOS)
     public static func openAppSystemSettings() {
         WebLinkHelper.openWebLink(UIApplication.openSettingsURLString)
     }
+    #endif
 }
 
 

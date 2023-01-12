@@ -8,6 +8,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
+#if os(iOS)
 struct CopyTextView: View {
     @State private var text: String = ""
     @State private var buttonText  = "Copy"
@@ -73,3 +74,4 @@ struct CopyTextView_Previews: PreviewProvider {
         CopyTextView()
     }
 }
+#endif

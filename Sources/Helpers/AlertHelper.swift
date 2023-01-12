@@ -13,7 +13,9 @@ public final class AlertHelper {
     ///   - title: Alert title
     ///   - message: Alert message
     ///   - actionLabel: Label for default button
+    /*
     public static func showSimpleAlert(title: String, message: String, actionLabel: String = "OK") {
+//    #if os(iOS)
         let alertController = UIAlertController(
             title: title,
             message: message,
@@ -26,7 +28,8 @@ public final class AlertHelper {
         //    title: "Scanning Not Supported",
         //    message: "This device doesn't support smart tag scanning. \n Use iPhone X or newer"
         // )
-    }
+//        #endif
+    }     */
 }
 
 

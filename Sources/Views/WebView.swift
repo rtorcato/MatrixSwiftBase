@@ -5,6 +5,7 @@
 //  Created by Richard Torcato on 2022-09-30.
 //
 
+#if canImport(WebKit)
 import SwiftUI
 import WebKit
 
@@ -65,3 +66,4 @@ struct WebView_Previews: PreviewProvider {
         WebView(request: URLRequest(url: URL(string: "https://www.apple.com")!), isLoading: .constant(false), error: .constant(nil))
     }
 }
+#endif

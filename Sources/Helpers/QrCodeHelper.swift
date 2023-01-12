@@ -4,7 +4,7 @@
 //
 //  Created by Richard Torcato on 2022-10-25.
 //
-
+#if os(iOS)
 import SwiftUI
 import AVFoundation
 
@@ -28,4 +28,4 @@ final class QrCodeHelper {
     
     
 }
-
+#endif

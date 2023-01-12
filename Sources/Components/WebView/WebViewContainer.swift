@@ -5,6 +5,7 @@
 //  Created by Richard Torcato on 2022-11-03.
 //
 
+#if canImport(WebKit)
 import SwiftUI
 import WebKit
 
@@ -61,3 +62,4 @@ extension WebViewContainer {
         }
     }
 }
+#endif

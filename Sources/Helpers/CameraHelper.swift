@@ -4,7 +4,7 @@
 //
 //  Created by Richard Torcato on 2022-10-25.
 //
-
+#if os(iOS)
 import Foundation
 
 import SwiftUI
@@ -54,3 +54,4 @@ final class CameraHelper {
 //    captureSession.startRunning()
     
 }
+#endif

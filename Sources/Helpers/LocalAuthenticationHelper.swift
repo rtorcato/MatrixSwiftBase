@@ -8,6 +8,7 @@
 import SwiftUI
 import LocalAuthentication
 
+#if os(iOS)
 final class LocalAuthenticationHelper {
     private(set) var context:LAContext
     private(set) var canEvaluatePolicy = false
@@ -91,4 +92,5 @@ final class LocalAuthenticationHelper {
 //        }
 //    }
 }
+#endif
 

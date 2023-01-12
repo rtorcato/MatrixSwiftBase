@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(iOS)
 public struct SizeClassHelper {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
@@ -31,3 +32,4 @@ public struct SizeClassHelper {
     //         print("This is an iPad")
     //    }
 }
+#endif

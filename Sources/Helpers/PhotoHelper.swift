@@ -5,6 +5,7 @@
 //  Created by Richard Torcato on 2022-10-20.
 //
 
+#if canImport(Photos)
 import SwiftUI
 import Photos
 
@@ -67,3 +68,4 @@ final class PhotoHelper {
         return value
     }
 }
+#endif

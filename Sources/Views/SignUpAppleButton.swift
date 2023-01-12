@@ -5,6 +5,7 @@
 //  Created by Richard Torcato on 2022-09-30.
 //
 
+#if os(iOS)
 import SwiftUI
 import AuthenticationServices
 
@@ -97,3 +98,5 @@ struct SignAppleButton_Previews: PreviewProvider {
         .frame(width: 200, height: 60)
     }
 }
+
+#endif

@@ -5,9 +5,10 @@
 //
 //  Created by Richard Torcato on 2022-11-28.
 //
-
+#if canImport(CoreImage)
 import SwiftUI
 import CoreImage.CIFilterBuiltins
+
 
 public struct QrCodeImage {
     let context = CIContext()
@@ -29,6 +30,7 @@ public struct QrCodeImage {
         return qrImage
     }
 }
+
 
 public struct QrCodeImageSampleView: View {
     @State private var text = "matrixdigital.com"
@@ -53,3 +55,4 @@ struct QrCodeImageSampleView_Previews: PreviewProvider {
         QrCodeImageSampleView()
     }
 }
+#endif

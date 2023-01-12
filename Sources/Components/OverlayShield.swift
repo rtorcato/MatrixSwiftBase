@@ -16,7 +16,9 @@ public struct OverlayShieldView: View {
 //            .zIndex(1)
             .opacity(0.25)
             .edgesIgnoringSafeArea(.all)
+        #if os(iOS)
             .background(.ultraThinMaterial)
+        #endif
     }
 }
 

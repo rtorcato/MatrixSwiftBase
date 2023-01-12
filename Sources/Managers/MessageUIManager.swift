@@ -4,7 +4,7 @@
 //
 //  Created by Richard Torcato on 2023-01-05.
 //
-
+#if canImport(MessageUI)
 import Foundation
 import MessageUI
 
@@ -95,3 +95,5 @@ public class MessageUIManager {
 //        AlertHelper.showSimpleAlert(title: "No Email", message: "Sorry your device cannot send email")
 //    }
 // }
+
+#endif

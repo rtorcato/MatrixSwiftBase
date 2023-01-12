@@ -4,7 +4,7 @@
 //
 //  Created by Richard Torcato on 2022-11-21.
 //
-
+#if os(iOS)
 import SwiftUI
 import VisionKit
 import AVKit
@@ -76,4 +76,4 @@ class VisionKitHelper {
 //    }
     
 }
-
+#endif

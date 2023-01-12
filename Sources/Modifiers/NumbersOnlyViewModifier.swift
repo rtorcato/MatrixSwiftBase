@@ -11,6 +11,7 @@
 import SwiftUI
 import Combine
 
+#if os(iOS)
 public struct NumbersOnlyViewModifier: ViewModifier {
     
     @Binding var text: String
@@ -43,3 +44,4 @@ extension View {
         self.modifier(NumbersOnlyViewModifier(text: text, includeDecimal: includeDecimal))
     }
 }
+#endif

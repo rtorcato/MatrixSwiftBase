@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(iOS)
 public struct SafeAreaHelper {
     
     /// Gets the safe area of for the top of the application
@@ -22,3 +23,4 @@ public struct SafeAreaHelper {
         return (keyWindow?.safeAreaInsets.top)!
     }
 }
+#endif

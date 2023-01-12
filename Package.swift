@@ -24,7 +24,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "MatrixSwiftBase",
-            dependencies: ["SwiftyUtils"],
+            dependencies: [], // ["SwiftyUtils"],
             path: "Sources",
             resources: [
                 // .process("Swift-Base-Kit-Assets.xcassets")
@@ -33,6 +33,7 @@ let package = Package(
             ]),
         .testTarget(
             name: "MatrixSwiftBaseTests",
-            dependencies: ["MatrixSwiftBase", "SwiftyUtils"]),
+            dependencies: ["MatrixSwiftBase"]),
+//            dependencies: ["MatrixSwiftBase", "SwiftyUtils"]),
     ]
 )

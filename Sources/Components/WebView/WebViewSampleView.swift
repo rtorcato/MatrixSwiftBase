@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#if os(iOS)
+
 public struct WebViewSampleView: View {
     
     @ObservedObject var webViewModel = WebViewModel(url: "https://www.apple.com/")
@@ -44,3 +46,4 @@ struct WebViewSampleView_Previews: PreviewProvider {
         WebViewSampleView()
     }
 }
+#endif

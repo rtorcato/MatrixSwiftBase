@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#if os(iOS)
+
 // MARK: Custom View which will return the properties of the view
 public struct ResponsiveView<Content: View>: View {
     var content: ((ResponsiveViewProperties)->Content)
@@ -51,3 +53,4 @@ public struct ResponsiveView<Content: View>: View {
     }
 //}
 
+#endif

@@ -5,8 +5,8 @@
 //  Created by Richard Torcato on 2022-10-21.
 //
 
+#if os(iOS)
 import Foundation
-
 import LocalAuthentication
 
 final class FaceIdHelper {
@@ -36,3 +36,4 @@ final class FaceIdHelper {
         }
     }
 }
+#endif

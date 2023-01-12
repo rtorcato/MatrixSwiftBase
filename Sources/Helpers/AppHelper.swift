@@ -7,6 +7,9 @@
 
 import Foundation
 import SwiftUI
+#if os(macOS)
+    import UIKit
+#endif
 
 public final class AppHelper {
     
@@ -32,13 +35,17 @@ public final class AppHelper {
 #endif
     }
     
+#if os(iOS)
     static var hasDynamicIsland: Bool {
         UIDevice.current.name == "iPhone 14 Pro" || UIDevice.current.name == "iPhone 14 Pro Max"
     }
+#endif
     
+#if os(iOS)
     static var deviceName: String{
         return UIDevice.current.name
     }
+#endif
     
     
     public static var appVersion: String {
@@ -60,6 +67,7 @@ public final class AppHelper {
 #endif
     
     // MacOS Data....
+    #if os(iOS) && os(macOS)
     public static var screen: CGRect{
 #if os(iOS)
         return UIScreen.main.bounds
@@ -67,6 +75,7 @@ public final class AppHelper {
         return NSScreen.main!.visibleFrame
 #endif
     }
+    #endif
     
     // hides the tab bar default appearance
 #if os(iOS)
@@ -75,7 +84,7 @@ public final class AppHelper {
     }
 #endif
     
-#if canImport(UIKit)
+#if os(iOS)
     public static func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
@@ -89,7 +98,7 @@ public final class AppHelper {
     public static func getDeviceToken(){
         //
     }
-    
+#if os(iOS)
     public static func getFirstWindowRootViewController() -> UIViewController? {
         guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return nil
@@ -100,4 +109,5 @@ public final class AppHelper {
         let viewController = firstWindow.rootViewController
         return viewController
     }
+    #endif
 }
