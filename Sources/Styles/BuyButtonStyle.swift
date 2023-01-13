@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(iOS)
 struct BuyButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -30,3 +31,4 @@ struct BuyButtonStyle_Previews: PreviewProvider {
         }
     }
 }
+#endif

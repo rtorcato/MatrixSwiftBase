@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "MatrixSwiftBase",
-    platforms: [.iOS(.v16), .macOS(.v10_14), .tvOS(.v16), .watchOS(.v9)],
+    platforms: [.iOS(.v16), .macOS(.v13), .tvOS(.v16), .watchOS(.v9)],
 //    exclude: ["instructions.md"],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.

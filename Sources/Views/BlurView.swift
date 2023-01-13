@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-#if os(macOS)
+#if os(iOS)
 struct BlurView: UIViewRepresentable {
 
    let style: UIBlurEffect.Style

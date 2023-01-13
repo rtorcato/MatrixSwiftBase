@@ -5,7 +5,7 @@
 //
 //  Created by Richard Torcato on 2022-11-28.
 //
-#if canImport(CoreImage)
+#if os(iOS)
 import SwiftUI
 import CoreImage.CIFilterBuiltins
 

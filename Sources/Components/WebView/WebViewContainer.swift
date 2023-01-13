@@ -5,7 +5,7 @@
 //  Created by Richard Torcato on 2022-11-03.
 //
 
-#if canImport(WebKit)
+#if os(iOS)
 import SwiftUI
 import WebKit
 

@@ -4,10 +4,9 @@
 //
 //  Created by Raphael Cerqueira on 11/11/20.
 //
-
-import Foundation
 import SwiftUI
 
+#if os(iOS)
 struct Line: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -18,3 +17,4 @@ struct Line: Shape {
         return path
     }
 }
+#endif

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(iOS)
 final actor ImageCache {
     private var cache = [UUID: UIImage] ()
     
@@ -22,6 +23,7 @@ final actor ImageCache {
 extension URLCache {
     static let imageCache = URLCache(memoryCapacity: 512*1000*1000, diskCapacity: 10*1000*1000*1000)
 }
+#endif
 
 /*
  example usage
