@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 #if canImport(UIKit)
-    import UIKit
+import UIKit
 #endif
 
 public final class AppHelper {
@@ -19,7 +19,8 @@ public final class AppHelper {
     //
     //    }
     
-    static var isMacOS: Bool {
+    
+    public static var isMacOS: Bool {
 #if os(iOS)
         return true
 #else
@@ -27,7 +28,7 @@ public final class AppHelper {
 #endif
     }
     
-    static var isDebug: Bool {
+    public static var isDebug: Bool {
 #if DEBUG
         return true
 #else
@@ -56,18 +57,30 @@ public final class AppHelper {
     }
     
 #if os(iOS)
+    public static var currentScene: UIWindowScene? {
+        UIApplication.shared.connectedScenes
+            .first { $0.activationState == .foregroundActive } as? UIWindowScene
+    }
+#endif
+    
+#if os(iOS)
     public static func isUsingSplitView()->Bool{
-        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{return false}
+        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{ return false }
         return screen.windows.first?.frame.size != screen.screen.bounds.size
     }
 #endif
+    
+    //    public static func getScreen() -> UIWindowScene? {
+    //        let scene = UIApplication.shared.connectedScenes.first
+    //        return scene
+    //    }
     
 #if os(iOS)
     public static let deviceType: UIUserInterfaceIdiom = UIDevice.current.userInterfaceIdiom
 #endif
     
     // MacOS Data....
-    #if os(iOS) && os(macOS)
+#if os(iOS) && os(macOS)
     public static var screen: CGRect{
 #if os(iOS)
         return UIScreen.main.bounds
@@ -75,7 +88,7 @@ public final class AppHelper {
         return NSScreen.main!.visibleFrame
 #endif
     }
-    #endif
+#endif
     
     // hides the tab bar default appearance
 #if os(iOS)
@@ -109,5 +122,5 @@ public final class AppHelper {
         let viewController = firstWindow.rootViewController
         return viewController
     }
-    #endif
+#endif
 }
