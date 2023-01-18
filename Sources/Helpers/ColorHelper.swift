@@ -40,8 +40,14 @@ final class ColorHelper {
         /*
          example: static let imageColor = ColorHelper.getColorFromRGB(r: 95, g: 99, b: 120)
          */
-        static func getColorFromRGB(r: Double, g: Double, b: Double) -> Color {
+        public static func getColorFromRGB(r: Double, g: Double, b: Double) -> Color {
             return Color(red: r / 255, green: g / 255, blue: b / 255)
         }
+    
+    #if os(iOS) || os(watchOS)
+        public static func random() -> UIColor {
+            return UIColor(displayP3Red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1), alpha: 1.0)
+        }
+    #endif
         
 }
