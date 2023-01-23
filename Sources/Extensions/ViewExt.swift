@@ -8,15 +8,68 @@
 import SwiftUI
 
 extension View {
-#if os(iOS)
-    public func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape(RoundedCorner(radius: radius, corners: corners))
-    }
-#endif
-}
-
-extension View {
     
+    // MARK: Read View Size
+    public func readSize(onChange: @escaping (CGSize) -> Void) -> some View {
+        background(
+            GeometryReader { geometryProxy in
+                Color.clear
+                    .preference(key: SizePreferenceKey.self, value: geometryProxy.size)
+            }
+        )
+        .onPreferenceChange(SizePreferenceKey.self, perform: onChange)
+    }
+    
+    // MARK: View Alignment helpers
+    /// - Useful for moving Views btw HStack and VStack
+    public func hAlign(_ alignment: Alignment)->some View{
+        self
+            .frame(maxWidth: .infinity,alignment: alignment)
+    }
+    
+    public func vAlign(_ alignment: Alignment)->some View{
+        self
+            .frame(maxHeight: .infinity,alignment: alignment)
+    }
+    
+    
+    // MARK: Disabling with Opacity
+    public func disableWithOpacity(_ condition: Bool)->some View{
+        self
+            .disabled(condition)
+            .opacity(condition ? 0.6 : 1)
+    }
+    
+    // MARK: Custom Border View With Padding
+    public func border(_ width: CGFloat,_ color: Color)->some View{
+        self
+            .padding(.horizontal,15)
+            .padding(.vertical,10)
+            .background {
+                RoundedRectangle(cornerRadius: 5, style: .continuous)
+                    .stroke(color, lineWidth: width)
+            }
+    }
+    
+    // MARK: Custom Fill View With Padding
+    public func fillView(_ color: Color)->some View{
+        self
+            .padding(.horizontal, 15)
+            .padding(.vertical, 10)
+            .background {
+                RoundedRectangle(cornerRadius: 5, style: .continuous)
+                    .fill(color)
+            }
+    }
+    
+    // MARK: Corner Radius with clipshape
+    #if os(iOS)
+        public func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+            clipShape(RoundedCorner(radius: radius, corners: corners))
+        }
+    #endif
+    
+    // MARK: Embed navigation
     public func embedInNavigationView() -> some View {
         return NavigationView { self }
     }
@@ -25,16 +78,10 @@ extension View {
     public func embedInNavigationStack() -> some View {
         return NavigationStack { self }
     }
-}
-
-extension View {
     
-    /// Applies the given transform if the given condition evaluates to `true`.
-    /// - Parameters:
-    ///   - condition: The condition to evaluate.
-    ///   - transform: The transform to apply to the source `View`.
-    /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
+    // MARK: Apply if
     @ViewBuilder public func applyIf<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+        // applies a modifier based on a condition
         if condition {
             transform(self)
         } else {
@@ -77,64 +124,4 @@ extension View {
 private struct SizePreferenceKey: PreferenceKey {
     static var defaultValue: CGSize = .zero
     static func reduce(value: inout CGSize, nextValue: () -> CGSize) {}
-}
-extension View {
-    public func readSize(onChange: @escaping (CGSize) -> Void) -> some View {
-        background(
-            GeometryReader { geometryProxy in
-                Color.clear
-                    .preference(key: SizePreferenceKey.self, value: geometryProxy.size)
-            }
-        )
-        .onPreferenceChange(SizePreferenceKey.self, perform: onChange)
-    }
-}
-
-
-
-
-
-// MARK: View Extensions For UI Building
-extension View{
-    // Closing All Active Keyboards
-
-    
-    // MARK: Disabling with Opacity
-    func disableWithOpacity(_ condition: Bool)->some View{
-        self
-            .disabled(condition)
-            .opacity(condition ? 0.6 : 1)
-    }
-    
-    func hAlign(_ alignment: Alignment)->some View{
-        self
-            .frame(maxWidth: .infinity,alignment: alignment)
-    }
-    
-    func vAlign(_ alignment: Alignment)->some View{
-        self
-            .frame(maxHeight: .infinity,alignment: alignment)
-    }
-    
-    // MARK: Custom Border View With Padding
-    func border(_ width: CGFloat,_ color: Color)->some View{
-        self
-            .padding(.horizontal,15)
-            .padding(.vertical,10)
-            .background {
-                RoundedRectangle(cornerRadius: 5, style: .continuous)
-                    .stroke(color, lineWidth: width)
-            }
-    }
-    
-    // MARK: Custom Fill View With Padding
-    func fillView(_ color: Color)->some View{
-        self
-            .padding(.horizontal, 15)
-            .padding(.vertical, 10)
-            .background {
-                RoundedRectangle(cornerRadius: 5, style: .continuous)
-                    .fill(color)
-            }
-    }
 }
