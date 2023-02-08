@@ -79,27 +79,10 @@ public final class AppHelper {
     public static let deviceType: UIUserInterfaceIdiom = UIDevice.current.userInterfaceIdiom
 #endif
     
-    // MacOS Data....
-#if os(iOS) && os(macOS)
-    public static var screen: CGRect{
-#if os(iOS)
-        return UIScreen.main.bounds
-#else
-        return NSScreen.main!.visibleFrame
-#endif
-    }
-#endif
-    
     // hides the tab bar default appearance
 #if os(iOS)
     public static func hideTabBarAppearance() {
         UITabBar.appearance().isHidden = true
-    }
-#endif
-    
-#if os(iOS)
-    public static func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 #endif
     

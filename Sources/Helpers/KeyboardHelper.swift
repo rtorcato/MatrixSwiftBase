@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-#if os(iOS)
+
 public struct KeyboardHelper {
-    
-//    static let shared = KeyboardHelper() // Singleton
-    
-    public static func closeKeyboard() {
+    // static let shared = KeyboardHelper() // Singleton
+}
+
+#if os(iOS)
+extension KeyboardHelper {
+    public static func dismissKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
