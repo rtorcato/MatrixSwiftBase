@@ -8,9 +8,9 @@
 import Foundation
 
 extension URL {
-    init(staticString string: StaticString) {
-        guard let url = URL(string: "\(string)") else {
-            preconditionFailure("Invalid static URL string: \(string)")
+    init(_ staticString: StaticString) {
+        guard let url = URL(string: "\(staticString)") else {
+            preconditionFailure("Invalid static URL string: \(staticString)")
         }
         self = url
     }

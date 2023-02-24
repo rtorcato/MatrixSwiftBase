@@ -12,6 +12,23 @@ final class ImageHelper {
     
     static let instance = ImageHelper() // Singleton
     
+    public static func getWebImage(imageURL: String) async throws -> UIImage? {
+        enum getWebImageError: Error {
+           case urlError
+           case unknownError
+        }
+        do {
+            guard let url = URL(string: "\(imageURL)") else {
+                throw getWebImageError.urlError
+            }
+            let (data, response) = try await URLSession.shared.data(from: url)
+            print(response)
+            return UIImage(data: data)
+        } catch {
+            throw getWebImageError.unknownError
+        }
+    }
+    
     static func createThumbnail(){
 //        var thumbnail: UIImage? {
 //        get async {

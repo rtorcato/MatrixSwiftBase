@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-final class ColorHelper {
+final public class ColorHelper {
     
-    static let instance = ColorHelper() // Singleton
+//    public static let instance = ColorHelper() // Singleton 
     
     // get color object to be used in swiftui from UIColor
 //        static func getColor (_ hex:String) -> Color {
@@ -44,10 +44,22 @@ final class ColorHelper {
             return Color(red: r / 255, green: g / 255, blue: b / 255)
         }
     
-    #if os(iOS) || os(watchOS)
-        public static func random() -> UIColor {
+   
+    
+   // #if os(iOS) || os(watchOS)
+        public static func getRandomColor() -> UIColor {
             return UIColor(displayP3Red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1), alpha: 1.0)
         }
-    #endif
-        
+   // #endif
 }
+
+//extension UIColor {
+//    static var random: UIColor {
+//        return UIColor(
+//            red: .random(in: 0...1),
+//            green: .random(in: 0...1),
+//            blue: .random(in: 0...1),
+//            alpha: 1.0
+//        )
+//    }
+//}
