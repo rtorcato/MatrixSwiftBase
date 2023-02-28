@@ -8,8 +8,8 @@
 import SwiftUI
 import PassKit
 
-struct AddToWalletButton: View {
-    var body: some View {
+public struct AddToWalletButton: View {
+    public var body: some View {
         
         //            if (!self.isLoading){
         //

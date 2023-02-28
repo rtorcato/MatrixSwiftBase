@@ -8,11 +8,11 @@
 import SwiftUI
 import StoreKit
 
-struct RequestReviewButton: View {
+public struct RequestReviewButton: View {
     @Environment (\.requestReview) var requestReview
-    let label: String
+    public let label: String
     
-    var body: some View {
+    public var body: some View {
         Button (label){
             DispatchQueue.main.async {
                  requestReview()
@@ -23,7 +23,15 @@ struct RequestReviewButton: View {
 
 struct RequestReviewButton_Previews: PreviewProvider {
     static var previews: some View {
-        RequestReviewButton(label:"Request Review")
+        Group {
+            RequestReviewButton(label:"Request Review")
+                .padding()
+                .preferredColorScheme(.light)
+            RequestReviewButton(label:"Request Review")
+                .padding()
+                .preferredColorScheme(.dark)
+        }
+        .previewLayout(.sizeThatFits)
     }
 }
 

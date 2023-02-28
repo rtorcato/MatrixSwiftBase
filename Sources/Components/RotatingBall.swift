@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct RotatingBall: View {
+public struct RotatingBall: View {
     @State var isAnimating = false // <1>
     var animation: Animation {
        Animation.linear.repeatForever(autoreverses: false)
     }
-    var body: some View {
+    public var body: some View {
         Rectangle()
             .fill(Color.pink)
             .frame(width: 100, height: 100)
