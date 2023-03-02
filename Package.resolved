@@ -19,21 +19,39 @@
       }
     },
     {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage",
+      "state" : {
+        "branch" : "master",
+        "revision" : "a812079ae91a7f2e627364c42ea7b98abfa366ed"
+      }
+    },
+    {
+      "identity" : "sdwebimagesvgcoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImageSVGCoder",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4e8e17925ed0c6f160c0d4c4ce58d5dfbcd26093"
+      }
+    },
+    {
+      "identity" : "svgview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/SVGView",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b2f2b2a7b576604ad17c11b3af33c27992bc5bcf"
+      }
+    },
+    {
       "identity" : "swiftkeychainwrapper",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jrendel/SwiftKeychainWrapper",
       "state" : {
         "branch" : "develop",
         "revision" : "185a3165346a03767101c4f62e9a545a0fe0530f"
-      }
-    },
-    {
-      "identity" : "swiftyutils",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/tbaranes/SwiftyUtils.git",
-      "state" : {
-        "revision" : "2ea7ce9677df367cfc55968f9f13aa77a0c741ac",
-        "version" : "5.5.2"
       }
     }
   ],

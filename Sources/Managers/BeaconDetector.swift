@@ -28,6 +28,6 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 //    }
     
     func startScanning(){
-        let uuid = UUID(uuidString: "")
+        _ = UUID(uuidString: "")
     }
 }

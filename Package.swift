@@ -13,10 +13,13 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/tbaranes/SwiftyUtils.git", .upToNextMajor(from: "5.0.0")),
+//        .package(url: "https://github.com/tbaranes/SwiftyUtils.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/jrendel/SwiftKeychainWrapper", branch: "develop"),
         .package(url: "https://github.com/airbnb/lottie-ios.git", from: "4.1.3"),
-        .package(url: "https://github.com/exyte/PopupView.git", branch: "master")
+        .package(url: "https://github.com/exyte/PopupView.git", branch: "master"),
+        .package(url: "https://github.com/SDWebImage/SDWebImage", branch: "master"),
+        .package(url: "https://github.com/SDWebImage/SDWebImageSVGCoder", branch: "master"),
+        .package(url: "https://github.com/exyte/SVGView", branch: "main")
         // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
@@ -26,7 +29,10 @@ let package = Package(
             name: "MatrixSwiftBase",
             dependencies: [
                 .product(name: "PopupView", package: "PopupView"),
-                .product(name: "Lottie", package: "lottie-ios")
+                .product(name: "Lottie", package: "lottie-ios"),
+                .product(name: "SDWebImage", package: "SDWebImage"),
+                .product(name: "SDWebImageSVGCoder", package: "SDWebImageSVGCoder"),
+                .product(name: "SVGView", package: "SVGView")
             ], // ["SwiftyUtils"],
             path: "Sources",
             resources: [

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import MatrixSwiftBase
 
 #if os(iOS)
 struct ActionSheetView<Content: View>: View {
