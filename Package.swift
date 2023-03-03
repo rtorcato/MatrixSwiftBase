@@ -16,7 +16,7 @@ let package = Package(
 //        .package(url: "https://github.com/tbaranes/SwiftyUtils.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/jrendel/SwiftKeychainWrapper", branch: "develop"),
         .package(url: "https://github.com/airbnb/lottie-ios.git", from: "4.1.3"),
-        .package(url: "https://github.com/exyte/PopupView.git", branch: "master"),
+//        .package(url: "https://github.com/exyte/PopupView.git", branch: "master"),
         .package(url: "https://github.com/SDWebImage/SDWebImage", branch: "master"),
         .package(url: "https://github.com/SDWebImage/SDWebImageSVGCoder", branch: "master"),
         .package(url: "https://github.com/exyte/SVGView", branch: "main")
@@ -28,7 +28,7 @@ let package = Package(
         .target(
             name: "MatrixSwiftBase",
             dependencies: [
-                .product(name: "PopupView", package: "PopupView"),
+//                .product(name: "PopupView", package: "PopupView"),
                 .product(name: "Lottie", package: "lottie-ios"),
                 .product(name: "SDWebImage", package: "SDWebImage"),
                 .product(name: "SDWebImageSVGCoder", package: "SDWebImageSVGCoder"),

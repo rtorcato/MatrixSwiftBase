@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+#if os(iOS)
 struct ToastTopFirst: View {
     var body: some View {
         Text("Unable to add to bag as this item is currently not available.")
@@ -135,5 +135,4 @@ struct Toasts_Previews: PreviewProvider {
     }
 }
 
-
-
+#endif

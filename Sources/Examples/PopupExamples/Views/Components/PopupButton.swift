@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+#if os(iOS)
 struct PopupButton<Content: View>: View {
     @Binding var isShowing: Bool
     
@@ -24,3 +24,4 @@ struct PopupButton<Content: View>: View {
         .buttonStyle(.borderedProminent)
     }
 }
+#endif

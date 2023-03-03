@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+#if os(iOS)
 struct PopupMiddle: View {
 
     @Binding var isPresented: Bool
@@ -147,3 +147,4 @@ struct Popups_Previews: PreviewProvider {
     }
 }
 
+#endif

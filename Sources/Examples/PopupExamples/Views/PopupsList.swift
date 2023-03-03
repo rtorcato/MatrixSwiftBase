@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+#if os(iOS)
 private struct SectionHeader: View {
     let name: String
     let count: Int
@@ -78,10 +78,10 @@ struct PopupsList: View {
     @Binding var showingBottomFirstPopup: Bool
     @Binding var showingBottomSecondPopup: Bool
     
-#if os(iOS)
+
     @Binding var showingFirstActionSheet: Bool
     @Binding var showingSecondActionSheet: Bool
-#endif
+
     
     var body: some View {
         let hideAll: () -> () = {
@@ -99,10 +99,10 @@ struct PopupsList: View {
             self.showingBottomFirstPopup = false
             self.showingBottomSecondPopup = false
             
-#if os(iOS)
+
             self.showingFirstActionSheet = false
             self.showingSecondActionSheet = false
-#endif
+
         }
         
         return ZStack {
@@ -112,9 +112,9 @@ struct PopupsList: View {
             
             ScrollView {
                 LazyVStack(spacing: 12) {
-#if os(macOS)
+
                     Color.clear.padding(.bottom, 40)
-#endif
+
                     Group {
                         SectionHeader(name: "Floats", count: 4)
                             .padding(.bottom, 12)
@@ -221,7 +221,7 @@ struct PopupsList: View {
                         }
                     }
                     
-#if os(iOS)
+
                     Group {
                         SectionHeader(name: "Action sheets", count: 2)
                             .padding(EdgeInsets(top: 20, leading: 0, bottom: 12, trailing: 0))
@@ -243,10 +243,9 @@ struct PopupsList: View {
                             }
                         }
                     }
-#endif
-#if os(macOS)
+
                     Color.clear.padding(.bottom, 40)
-#endif
+
                 }
             }
             .padding(.top, 1)
@@ -271,3 +270,4 @@ struct PopupsList_Previews: PreviewProvider {
         }
     }
 }
+#endif

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+#if os(iOS)
 struct FloatTopFirst: View {
     var body: some View {
         ZStack {
@@ -121,3 +121,4 @@ struct Floats_Previews: PreviewProvider {
         }
     }
 }
+#endif
