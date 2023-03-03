@@ -4,7 +4,7 @@
 //
 //  Created by Richard Torcato on 2023-01-31.
 //
-
+#if os(iOS)
 import SwiftUI
 import StoreKit
 
@@ -35,3 +35,4 @@ struct RequestReviewButton_Previews: PreviewProvider {
     }
 }
 
+#endif

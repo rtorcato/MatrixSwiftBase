@@ -9,7 +9,7 @@
  Abstract:
  A button that hosts PKPaymentButton for simulating smoothie purchases with Apple Pay.
  */
-
+#if !os(watchOS)
 import SwiftUI
 import PassKit
 
@@ -104,3 +104,4 @@ extension PaymentButton {
     }
    
 }
+#endif

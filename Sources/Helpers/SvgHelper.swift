@@ -4,7 +4,7 @@
 //
 //  Created by Richard Torcato on 2023-03-01.
 //
-
+#if !os(watchOS)
 import Foundation
 import SDWebImageSVGCoder
 
@@ -16,3 +16,4 @@ public final class SvgHelper {
         SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
     }
 }
+#endif

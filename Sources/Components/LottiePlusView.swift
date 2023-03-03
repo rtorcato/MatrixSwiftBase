@@ -5,7 +5,7 @@
 //  Created by Richard Torcato on 2023-01-23.
 //
 
-
+#if canImport(Lottie)
 import SwiftUI
 import Lottie
 
@@ -53,3 +53,4 @@ struct LottiePlusView: UIViewRepresentable {
     }
 
 }
+#endif

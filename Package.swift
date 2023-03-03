@@ -29,10 +29,10 @@ let package = Package(
             name: "MatrixSwiftBase",
             dependencies: [
 //                .product(name: "PopupView", package: "PopupView"),
-                .product(name: "Lottie", package: "lottie-ios"),
-                .product(name: "SDWebImage", package: "SDWebImage"),
-                .product(name: "SDWebImageSVGCoder", package: "SDWebImageSVGCoder"),
-                .product(name: "SVGView", package: "SVGView")
+//                .product(name: "Lottie", package: "lottie-ios"),
+//                .product(name: "SDWebImage", package: "SDWebImage"),
+//                .product(name: "SDWebImageSVGCoder", package: "SDWebImageSVGCoder"),
+//                .product(name: "SVGView", package: "SVGView")
             ], // ["SwiftyUtils"],
             path: "Sources",
             resources: [

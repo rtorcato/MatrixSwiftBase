@@ -4,7 +4,7 @@
 //
 //  Created by Richard Torcato on 2023-01-31.
 //
-
+#if !os(watchOS)
 import SwiftUI
 import CoreLocation
 import Combine
@@ -31,3 +31,4 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         _ = UUID(uuidString: "")
     }
 }
+#endif
